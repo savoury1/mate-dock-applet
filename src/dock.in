@@ -2771,7 +2771,7 @@ class Dock(object):
                 # unpinned apps that are no longer running can be removed from the dock
 
                 if dock_app.is_running():
-                    # if the app is still running but does nor have normal or dialog windows remaining
+                    # if the app is still running but does not have normal or dialog windows remaining
                     # it needs to be removed from the dock
                     keep_in_dock = False
                     for win in dock_app.get_windows():
@@ -3145,10 +3145,7 @@ class Dock(object):
                 try:
                     pixbuf = icon_info.load_icon()
                 except GLib.GError:
-                    # default to a stock icon if we couldn't load the app icon
-                    pixbuf = self.applet.render_icon(Gtk.STOCK_EXECUTE,
-                                                     stock_size, None)
-                dock_app.icon_filename = "STOCK_EXECUTE"
+                    dock_app.icon_filename = None
 
         if dock_app.icon_filename is None:
             # we couldn't get the icon from the .desktop or theme but there a still a few
