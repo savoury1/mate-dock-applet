@@ -544,7 +544,7 @@ class DockedApp(object):
 
         # no match, so just get basic info
         self.app_name = self.bamf_app.get_name()
-        self.icon_name = "wnck"  # indicate we want to get the app icon from wnck
+        self.icon_name = self.bamf_app.get_icon()
 
     def set_app_name(self, app_name):
         """sets the app name.
