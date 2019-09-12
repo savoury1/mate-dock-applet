@@ -1,6 +1,18 @@
 # An application dock applet for the MATE panel
 
-## Important!!!
+---
+
+### V0.90 GTK2 Build
+
+Thanks to Robin Thompson for this excellent dock applet. Unfortunately various commits to MATE Dock Applet from around V0.85-0.86 onwards break the applet on GTK2 based desktops. Given that Robin Thompson has retired from an active role in maintaining the applet, a fork to create a working GTK2 build was needed. This version fulfills that need.
+
+The original applet is now being maintained by several contributors other than Robin Thompson and the version number has jumped to 19.10.0 (seemingly coincident with the version of the upcoming Ubuntu Eoan). Thus, using V0.90 for the GTK2 build keeps the version lower than modern GTK3 focused builds and also uniquely identifies this version, given that it is a variant of the applet that didn't exist until now.
+
+---
+
+*21 May 2019 -- Final note from Robin Thompson (MATE Dock Applet creator).*
+
+#### Important!!!
 
 V0.89 will be the final release of the applet. Over the past year or so, time to work on the project and the enthusiasm to do so have both been hard to find. Since my free time is so limited right now, I would much rather be spending it doing something I am more enthusiastic about and will get more enjoyment from. Because of this, I've reluctantly decided to stop work on the applet...
 
@@ -8,6 +20,7 @@ Hopefully, this won't mean the end of the applet. Being GPL, the code is freely 
 
 As a final note, I would like to express my thanks to all those users who've contributed via bug reports, pull requests etc. over the past few years.
 
+---
 
 ### Mate dock applet V0.88 on Ubuntu MATE 18.10
 ![V0.88 on Ubuntu MATE 18.10](https://github.com/robint99/screenshots/blob/master/dock%20applet%20V0.88.png)
@@ -67,7 +80,7 @@ Users of other distros will need to install from source, so first install the re
 
 * Python3
 * Python wnck bindings (gir1.2-wnck-1.0 for Gtk2 versions of the applet, gir1.2-wnck-3.0 for Gtk3)
-* Python implementation of Xlib - python-xlib (python3-xlib in Ubuntu based distributions)
+* Python bindings to the keybinder library (gir1.2-keybinder-0.0 for Gtk2, gir1.2-keybinder-3.0 for Gtk3)
 * GLib development files (libglib2.0-dev)
 * Python Imaging Library (python3-pil)
 * Python 3 Cairo bindings (python3-cairo)

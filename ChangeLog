@@ -1,11 +1,29 @@
-V0.88 Added Unity and Unity Flat looks to the dock
+V0.90 GTK2 Build (fork)
+      Reverted numerous commits that cause the dock to malfunction on GTK2
+        based desktops. Items marked with xx in the changelog below have been
+        reverted or the commit not even applied. Here are the main changes:
+      - Keybinder has been reinstated for <Super> key use (rather than Xlib)
+      - All HiDPI icon scaling code has been removed (due no icons on GTK2)
+      - All expanding/scaling code for the dock itself has been removed
+      - All dark/Unity theme and appearance prefs theme code has been removed
+      - Bamf is used for icon detection (as originally) rather than wnck
+      Additionally, this post-V0.89 fix is also included:
+      - Fix typo in user application path (~/.local/share/applications)
+
+V0.89 Final release from Robin Thompson (creator of MATE Dock Applet).
+ xx   Fix for issue #173 - Check if wnck returned an icon before scaling
+      Fix for issue #174 - Crash report on version 0.88 (empty application object)
+      Fix for issue #176 - Icons starts to blink when trying to open a minimized window
+
+V0.88 - GTK2 Build is based on V0.87 plus cherry-picked commits from V0.88+
+ xx   Added Unity and Unity Flat looks to the dock
       Changed the way in which the dock appearance is set in the
-      preferences dialog, so that preset 'themes' or a custom mix
+ xx   preferences dialog, so that preset 'themes' or a custom mix
       of icon background and indicators can be applied.
       Fix for issue #167 - Unpinned applications do not minimize to their own button
-      Fix for issue #166 - MATE's Sticky Notes show up in the Dock
-      Fix for issue #126 - Version 0.83 adds extra space on the right side of the panel.
-      Fix for issue #113 - Unity-like icons backlight + gloss
+ xx   Fix for issue #166 - MATE's Sticky Notes show up in the Dock
+ xx   Fix for issue #126 - Version 0.83 adds extra space on the right side of the panel.
+ xx   Fix for issue #113 - Unity-like icons backlight + gloss
       Fix for issue #101 - Double click needed, if panel not expaned
       Fix for an untracked issue where apps whose .desktop file specified a
       full path and filename for their desktop icon would not load the icon correctly.
@@ -14,8 +32,8 @@ V0.88 Added Unity and Unity Flat looks to the dock
 
 V0.87 Fix for issue #158 - Odd Icon Behavior when Minimizing and then unminimizing.
       Fix for issue #139 - LibreOffice Writer not showing in dock
-      Fix for issue #160 - Unused evenFixt parameter removed
-      Fix for issue #ccccc159 - Use dark variant when defined by theme
+      Fix for issue #160 - Unused event parameter removed
+ xx   Fix for issue #159 - Use dark variant when defined by theme
       Fix for issue #154 - Added a 'bring all windows forward' option
       Fix for issue #156 - AttributeError in do_window_scroll()
 	    Fix for issue #152 - Icons of wine applications aren't displayed
@@ -23,7 +41,7 @@ V0.87 Fix for issue #158 - Odd Icon Behavior when Minimizing and then unminimizi
       displayed in the right click or popup menus rather. Previously a maximum
       of 4 only would be displayed.
 	    Fix for issue #146 - unable to restore some minimized windows
-	    Fix for issue #144 - blurry icons on hidpi displays
+ xx	    Fix for issue #144 - blurry icons on hidpi displays
 
       Note : Many thanks go to github user @vkareh for the fixes to issues
       #144, #159 and #160
@@ -38,7 +56,7 @@ V0.86 Fix for issue #130, Icon stays highlighted with all windows closed
 	    Fix for issue #138 - dragging app icons not always working
       Fix for issue #142 - Certain function keys cause the keyboard listener to
       stop working (thanks to @nschulzke on github for this)
-	    Potential fix for issue #144 - Blurry app icons. Untested due to lack of
+ xx	    Potential fix for issue #144 - Blurry app icons. Untested due to lack of
 	    hidpi monitor.
 	    Fixed window previews with Compiz which were broken in V0.81
 	    When an app's window is closed from the window list, the window list
@@ -111,7 +129,7 @@ V0.80 With Gtk3 and Python GObject bindings 3.26.0 or greater, window lists and
       The appearance of progress bars on dock icons has been improved.
 
 V0.79 The applet no longer swallows <Super> key presses. This means it now works happily
-      alongside other apps that also use the <Super> key, e.g. the Brisk menu, the Advanced
+ xx   alongside other apps that also use the <Super> key, e.g. the Brisk menu, the Advanced
       Mate Menu or Albert.
 
       Fixed crashes relating to Pango when window list and action_list contents needed
