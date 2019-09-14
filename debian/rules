@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+include /usr/share/cdbs/1/class/autotools.mk
+include /usr/share/cdbs/1/rules/autoreconf.mk
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/rules/utils.mk
+
+DEB_VERBOSE_ALL = 1
+DH_VERBOSE = 1
+DEB_CONFIGURE_EXTRA_FLAGS += --prefix=/usr --with-gtk2
+DEB_DH_INSTALL_ARGS += --fail-missing
+
+common-install-indep:: remove-cruft
+common-install-arch:: remove-cruft
+common-binary-post-install-arch:: list-missing
+
+remove-cruft::
+	rm -Rf debian/mate-dock-applet/usr/lib/mate-applets/mate-dock-applet/__pycache__/
+
+get-orig-source:
+	uscan --noconf --force-download --rename --download-current-version --destdir=..

@@ -1,0 +1,2 @@
+version=3
+https://github.com/savoury1/dock-applet/tags .*/V?(\d\S*)\.tar\.gz

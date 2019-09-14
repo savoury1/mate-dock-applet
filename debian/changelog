@@ -1,0 +1,230 @@
+mate-dock-applet (0.90.gtk2-1sav0) xenial; urgency=medium
+
+  * Apply all previous patches (0001-0005) to source and remove patch files
+  * Apply cherry-picked docks apps minimise locations fix (commit 6e91f3c)
+  * Apply cherry-picked app with full path for icon fix (commit da2992f)
+  * Apply cherry-picked empty app object and event time fixes (commit dcb98fe)
+  * Apply cherry-picked user application path typo fix (commit bc5e567)
+  * Apply cherry-picked version info & link updates (commits b4689cc, d5d0d7b,
+    8a630b5, 9ae6a62, 8255beb, 5ac2b34)
+  * debian/changelog: set new version and list all 0.88+ cherry-picked commits
+
+ -- Rob Savoury <savourytech@use.startmail.com>  Mon, 09 Sep 2019 23:16:43 -0700
+
+mate-dock-applet (0.87+git20181104.2886976.gtk2-2sav0) xenial; urgency=medium
+
+  * debian/patches:
+    + add 0004-revert-bamf-delay-ayatana.patch due ayatana indicator
+      libraries not being in 16.04 Xenial and older (commit 8074da6)
+    + add 0005-revert-wnck-icon-detection.patch due some Java-based
+      applications (ie. ImageJ) having no dock icon (commit ffb4b4c)
+
+ -- Rob Savoury <savourytech@use.startmail.com>  Sat, 31 Aug 2019 21:53:47 -0700
+
+mate-dock-applet (0.87+git20181104.2886976.gtk2-1sav0) xenial; urgency=medium
+
+  * Build for GTK2-based desktops also with keybinder re-instated (pre 0.79)
+  * d/control: drop Stds to 3.98 and compat level to 9 (no changes required)
+  * d/patches/
+    + add 0001-revert-to-keybinder.patch as Super+<Num> keyboard shortcuts do
+      not work reliably with Xlib as key handler (reverts commit eba7c7b)
+    + add 0002-revert-hidpi-icon-scaling.patch due no dock icons with GTK2
+      (reverts 736f47b, bcf922d, e432c87, and changes part of f7db78b)
+    + add 0003-revert-dark-theme-backgrounds.patch again due no icons on GTK2
+      MATE panel (revert merge 89d6369/b471c86 and change part of 516ac9d)
+
+ -- Rob Savoury <savourytech@use.startmail.com>  Fri, 30 Aug 2019 16:55:59 -0700
+
+mate-dock-applet (0.87-2) unstable; urgency=medium
+
+  * debian/control:
+    + Bump Standards-Version: to 4.3.0. No changes needed.
+    + Add D (mate-dock-applet): python3-dbus. (Closes: #917884).
+
+ -- Mike Gabriel <sunweaver@debian.org>  Tue, 22 Jan 2019 22:32:53 +0100
+
+mate-dock-applet (0.87-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control:
+    + Bump Standards-Version: to 4.2.1. No changes needed.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Fri, 21 Sep 2018 13:41:56 +0200
+
+mate-dock-applet (0.86-2) unstable; urgency=medium
+
+  * debian/control:
+    + Add D (mate-dock-applet): gir1.2-notify-0.7. (Closes: #855533).
+    + Bump Standards-Version: to 4.2.0. No changes needed.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Mon, 20 Aug 2018 10:28:56 +0200
+
+mate-dock-applet (0.86-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control:
+    + Update Vcs-*: fields. Package has been migrated to salsa.debian.org.
+    + Drop pkg-mate-team Alioth mailing list from Uploaders: field.
+    + Bump Standards-Version: to 4.1.5. No changes needed.
+    + Drop X-Python3-Version: >= 3.2. Python 3.2 is satisfied by all Python
+      versions in Debian.
+  * debian/copyright:
+    + Make Upstream-Name: field's value more human readable.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Thu, 12 Jul 2018 13:31:57 +0200
+
+mate-dock-applet (0.85-1) unstable; urgency=medium
+
+  [ Martin Wimpress ]
+  * New upstream release. (LP: #1755835)
+
+ -- Mike Gabriel <sunweaver@debian.org>  Tue, 20 Mar 2018 12:43:37 +0100
+
+mate-dock-applet (0.83-1) unstable; urgency=medium
+
+  [ Martin Wimpress ]
+  * New upstream release.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Thu, 01 Mar 2018 20:10:43 +0100
+
+mate-dock-applet (0.81-1) unstable; urgency=medium
+
+  [ Martin Wimpress ]
+  * New upstream release. (LP: #1715234, #1730015, #1716218, #1630766)
+  * debian/control:
+    + Add D gir1.2-bamf-3 and bamfdaemon.
+  * debian/copyright:
+    + Update copyright attributions.
+  * debian/patches:
+    + Add 0001_hidpi.patch. Scale panel size when using HiDPI displays.
+
+  [ Mike Gabriel ]
+  * debian/copyright:
+    + Use secure URI for copyright format.
+
+  [ Vangelis Mouhtsis ]
+  * debian/control:
+    + Temporarily have pkg-mate-team ML under Uploaders:.
+    + Add myself to Uploaders: field.
+    + Update Maintainer: field to debian-mate ML on lists.debian.org.
+    + Rename pretty name of our team -> Debian+Ubuntu MATE Packaging Team.
+    + Bump Standards-Version: to 4.1.3. No changes needed.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Thu, 15 Feb 2018 11:06:51 +0100
+
+mate-dock-applet (0.80-1) unstable; urgency=medium
+
+  [ Martin Wimpress ]
+  * New upstream release. (LP: #1683230)
+
+  [ Mike Gabriel ]
+  * debian/control:
+    + Set Priority: to optional.
+    + Bump Standards-Version: to 4.1.1.
+    + Drop useless B-Ds: dh-autoreconf, autotools-dev.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Fri, 03 Nov 2017 09:26:28 +0100
+
+mate-dock-applet (0.79-1) unstable; urgency=medium
+
+  [ Aron Xu ]
+  * New upstream release.
+
+  [ Martin Wimpress ]
+  * debian/copyright: Update copyright attributions.
+  * debian/control: Add D gir1.2-keybinder-3.0.
+  * debian/control: Replace D gir1.2-keybinder-3.0 with python3-xlib.
+
+  [ Mike Gabriel ]
+  *  debian/rules:
+    + Drop DEB_DH_INSTALL_ARGS (--fail-missing) and use utils.mk's list-missing
+      target instead.
+  * debian/{compat,control}:
+    + Bump to DH version level 10.
+    debian/control:
+    + Bump Standards-Version: to 4.0.0. No changes needed.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Tue, 01 Aug 2017 14:21:30 -0400
+
+mate-dock-applet (0.75-1) unstable; urgency=medium
+
+  [ Martin Wimpress ]
+  * New upstream release.
+  * debian/copyright:
+    + Update copyright attributions.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Tue, 04 Oct 2016 21:22:19 +0200
+
+mate-dock-applet (0.74-1) unstable; urgency=medium
+
+  [ Martin Wimpress ]
+  * New upstream release.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Wed, 24 Aug 2016 13:03:46 +0200
+
+mate-dock-applet (0.73-1) unstable; urgency=medium
+
+  [ Martin Wimpress ]
+  * New upstream release.
+  * debian/control:
+    + Remove obsolete D (mate-dock-applet): python3-scipy.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Wed, 27 Jul 2016 09:18:52 +0200
+
+mate-dock-applet (0.72-1) unstable; urgency=medium
+
+  [ Martin Wimpress ]
+  * New upstream release.
+  * debian/control:
+    + B-D: gir1.2-gtk-3.0.
+    + Versioned B-D: gir1.2-mate-panel (>= 1.14.0).
+    + B-D: gir1.2-wnck-3.0.
+    + Versioned B-D: mate-panel (>= 1.14).
+    + Bump Standards: to 3.9.8. No changes needed.
+  * debian/rules:
+    + Add --with-gtk3.
+  * debian/copyright:
+    + Update copyright attributions.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Thu, 23 Jun 2016 21:21:19 +0200
+
+mate-dock-applet (0.70-1) unstable; urgency=medium
+
+  [ Martin Wimpress ]
+  * New upstream release.
+    - Fix import settings error on panel layout changes. (LP: #1557180).
+
+ -- Mike Gabriel <sunweaver@debian.org>  Thu, 17 Mar 2016 14:28:06 +0100
+
+mate-dock-applet (0.69-1) unstable; urgency=medium
+
+  [ Martin Wimpress ]
+  * New upstream release. (LP:#1555324, LP:#1550392, LP:#1554128).
+
+  [ Mike Gabriel ]
+  * debian/control:
+    + Bump Standards: to 3.9.7. No changes needed.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Mon, 14 Mar 2016 15:17:04 +0100
+
+mate-dock-applet (0.67-3) unstable; urgency=medium
+
+  * debian/control:
+    + Add D (mate-dock-applet): libglib2.0-bin. (Closes: #815624).
+
+ -- Mike Gabriel <sunweaver@debian.org>  Wed, 24 Feb 2016 12:51:31 +0100
+
+mate-dock-applet (0.67-2) unstable; urgency=medium
+
+  * debian/control:
+    + Drop Ds: python3-cairo, python3-gi, add D instead: python3-gi-cairo.
+      Required to let mate-dock-applet really show icons. (Closes: #815092).
+    + Use encrypted URLs for Vcs-*: fields.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Fri, 19 Feb 2016 05:15:37 +0100
+
+mate-dock-applet (0.67-1) unstable; urgency=medium
+
+  * Initial release. (Closes: #814104).
+
+ -- Mike Gabriel <sunweaver@debian.org>  Sun, 14 Feb 2016 15:45:32 +0100
